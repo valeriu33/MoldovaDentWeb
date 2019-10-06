@@ -9,9 +9,11 @@ import { AppComponent } from './app.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { ContentComponent } from './components/content/content.component';
+import { WellcomeComponent } from './components/wellcome/wellcome.component';
+import { LogInComponent } from './components/profile/log-in/log-in.component';
+import { RegisterComponent } from './components/profile/register/register.component';
 
 import { GeneralState } from './state/general.state';
-import { WellcomeComponent } from './components/wellcome/wellcome.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { WellcomeComponent } from './components/wellcome/wellcome.component';
     NavigationComponent,
     ProfileComponent,
     ContentComponent,
-    WellcomeComponent
+    WellcomeComponent,
+    LogInComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

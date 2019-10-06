@@ -1,14 +1,17 @@
+$textColor: darkGray;
+$textSdadow: lightBlue;
+
 .myjumbotron {
     background-image: url("../../../assets/img/jumbotron-image.jpg");
     background-size: cover;
   }
 
   p {
-    color: white;
-    text-shadow: 0px 0px 1px (gray);
+    color: $textColor;
+    text-shadow: 0px 0px 1px ($textSdadow);
   }
 
   h1 {
-    color: white;
-    text-shadow: 0px 0px 2px (gray);
+    color: $textColor;
+    text-shadow: 0px 0px 2px ($textSdadow);
   }

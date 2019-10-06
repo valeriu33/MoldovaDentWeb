@@ -11,10 +11,10 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
   animations: [
     trigger('textChangePosition', [
       state('down', style({
-        paddingTop: '120px'
+        paddingTop: '130px'
       })),
       state('up', style({
-        paddingTop: '100px'
+        paddingTop: '110px'
       })),
       transition('up => down', [animate('500ms')]),
       transition('down => up', [animate('500ms')])

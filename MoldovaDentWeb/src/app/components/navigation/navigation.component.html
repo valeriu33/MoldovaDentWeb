@@ -7,31 +7,36 @@
     <div class="dropdown nav-element">
         <button class="dropbtn">Services <i class=" down"></i></button>
         <div class="dropdown-content">
-            <a href="#">Link 1</a>
-            <a href="#">Link 2</a>
-            <a href="#">Link 3</a>
+            <a href="#">Teeth whitening</a>
+            <a href="#">Some other service</a>
+            <a href="#">Maybe a blowjob</a>
         </div>
     </div>
 
     <div class="dropdown nav-element ">
         <button class="dropbtn">Dental Problems <i class=" down"></i></button>
         <div class="dropdown-content">
-            <a href="#">Link 1</a>
-            <a href="#">Link 2</a>
-            <a href="#">Link 3</a>
+            <a href="#">Dental bugs</a>
+            <a href="#">Shark-like teeth</a>
+            <a href="#">Simply an ugly smile</a>
         </div>
     </div>
 
     <div class="dropdown nav-element ">
         <button class="dropbtn">Travel Facilities <i class=" down"></i></button>
         <div class="dropdown-content">
-            <a href="#">Link 1</a>
-            <a href="#">Link 2</a>
-            <a href="#">Link 3</a>
+            <a href="#">Take a flight to Moldova</a>
+            <a href="#">Stay in out Hotels</a>
+            <a href="#">Maybe some entertainment </a>
         </div>
     </div>
 
-    <div class="profile">
+    <div class="profile dropdown">
         <app-profile></app-profile>
+
+        <div class="dropdown-content">
+            <a (click)="login()">Login</a>
+            <a (click)="register()">Register</a>
+        </div>
     </div>
 </div>
