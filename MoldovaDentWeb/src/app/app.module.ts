@@ -1,9 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxsModule } from '@ngxs/store';
+import { MatDialogModule } from '@angular/material';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
@@ -13,7 +15,14 @@ import { WellcomeComponent } from './components/wellcome/wellcome.component';
 import { LogInComponent } from './components/profile/log-in/log-in.component';
 import { RegisterComponent } from './components/profile/register/register.component';
 
-import { GeneralState } from './state/general.state';
+
+import { AppState } from './state/app.state';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { JwtInterceptor } from './_helpers/jwt.interceptor';
+import { ErrorInterceptor } from './_helpers/error.interceptor';
+import { environment } from '@environments/environment';
+import { AuthenticationState } from './state/authentication.state';
+import { UiState } from './state/ui.state';
 
 @NgModule({
   declarations: [
@@ -25,16 +34,29 @@ import { GeneralState } from './state/general.state';
     LogInComponent,
     RegisterComponent
   ],
+  entryComponents: [
+    LogInComponent,
+    RegisterComponent
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     BrowserAnimationsModule,
     NgxsModule.forRoot([
-      GeneralState
-    ])
+      AppState,
+      UiState,
+      AuthenticationState
+    ],
+    { developmentMode: !environment.production }),
+    MatDialogModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

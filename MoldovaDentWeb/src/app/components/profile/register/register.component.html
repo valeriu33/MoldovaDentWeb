@@ -1,1 +1,23 @@
-<p>register works!</p>
+<div class="dialog">
+        <h2 mat-dialog-title>
+                Registration
+        </h2>
+        <div mat-dialog-content>
+            <mat-form-field>
+                <label>Email :</label><br>
+                    <input matInput #email placeholder="example@email.com"><br>
+            </mat-form-field>
+            <mat-form-field>
+                <label>Password</label><br>
+                    <input type="password" matInput #password>
+            </mat-form-field>
+            <mat-form-field>
+                    <label>Repeat Password</label><br>
+                        <input type="password" matInput>
+            </mat-form-field>
+        </div>
+        <div mat-dialog-actions>
+            <button mat-dialog-close>Cancel</button>
+            <button mat-button (click)="register(email.value, password.value)" Register></button>
+        </div>
+    </div>

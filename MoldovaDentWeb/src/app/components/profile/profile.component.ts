@@ -7,13 +7,13 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
   encapsulation: ViewEncapsulation.None
 })
 export class ProfileComponent implements OnInit {
-
+// TODO: do you need a profile comnonent?
   constructor() { }
 
   ngOnInit() {
   }
 
-  profileClicked(){
+  profileClicked() {
     console.log('profile');
   }
 

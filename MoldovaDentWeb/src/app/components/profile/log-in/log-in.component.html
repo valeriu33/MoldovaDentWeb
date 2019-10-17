@@ -1,0 +1,19 @@
+<div class="dialog">
+    <h2 mat-dialog-title>
+            Login
+    </h2>
+    <div mat-dialog-content>
+        <mat-form-field>
+            <label>Email :</label><br>
+                <input matInput #email placeholder="example@email.com"><br>
+        </mat-form-field>
+        <mat-form-field>
+            <label>Password</label><br>
+                <input type="password" matInput #password>
+        </mat-form-field>
+    </div>
+    <div mat-dialog-actions>
+        <button mat-dialog-close>Cancel</button>
+        <button mat-button (click)="logIn(email.value, password.value)">Login</button>
+    </div>
+</div>

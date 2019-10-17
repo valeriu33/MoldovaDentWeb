@@ -1,20 +1,20 @@
 import { State, Action, StateContext } from '@ngxs/store';
-import {ExpandMenu, MinifyMenu } from '../actions/general.actions';
+import {ExpandMenu, MinifyMenu } from '../actions/ui.actions'; // TODO: do a more smart import
 
-export class GeneralStateModel {
+export class UiStateModel {
     isMenuExpanded: boolean;
 }
 
-@State<GeneralStateModel> ({
-    name: 'general',
+@State<UiStateModel> ({
+    name: 'ui',
     defaults: {
         isMenuExpanded: true
     }
 })
-export class GeneralState {
+export class UiState {
 
     @Action(ExpandMenu)
-    expandMenu(context: StateContext<GeneralStateModel>) {
+    expandMenu(context: StateContext<UiStateModel>) {
         const state = context.getState();
         context.setState({
             ...state,
@@ -23,7 +23,7 @@ export class GeneralState {
     }
 
     @Action(MinifyMenu)
-    minifyMenu(context: StateContext<GeneralStateModel>) {
+    minifyMenu(context: StateContext<UiStateModel>) {
         const state = context.getState();
         context.setState({
             ...state,

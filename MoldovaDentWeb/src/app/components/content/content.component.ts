@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HostListener } from '@angular/core';
 import { Store } from '@ngxs/store';
-import { ExpandMenu, MinifyMenu } from '../../actions/general.actions';
+import { ExpandMenu, MinifyMenu } from '../../actions/ui.actions';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 
 @Component({
@@ -24,7 +24,7 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 export class ContentComponent implements OnInit {
 
   constructor(private store: Store) {
-    this.store.select(menuState => menuState.general.isMenuExpanded)
+    this.store.select(menuState => menuState.app.ui.isMenuExpanded)
     .subscribe(isExpanded => isExpanded ? this.currentPosition = 'down' : this.currentPosition = 'up');
   }
 
