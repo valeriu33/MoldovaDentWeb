@@ -18,8 +18,7 @@ import { AuthenticationService } from '@app//services/authentication.service';
       state('small', style({
         height: '110px'
       })),
-      transition('big => small', [animate('500ms')]),
-      transition('small => big', [animate('500ms')]),
+      transition('big <=> small', [animate('500ms')])
     ])
   ],
   encapsulation: ViewEncapsulation.None
