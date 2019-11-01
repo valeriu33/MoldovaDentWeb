@@ -1,46 +1,47 @@
-<div [@navBarChangeSize]="currentSize" class="py-3 nav">
-    
-    <div class="nav-element">
-        <img src="../../../assets/img/demo-logo.png" class="mx-3 img" />
-    </div>
-<!-- TODO: add on hover animations -->
-    <div class="col-4"></div>
+<div [@navBarChangeSize]="currentSize" class="nav">
+  <div class="img">
+    <img src="../../../assets/img/demo-logo.png" width="70px" />
+  </div>
+
+  <div class="nav-element-container">
     <div class="dropdown nav-element">
-        Services
-        <div class="dropdown-content">
-            <a href="#">Teeth whitening</a>
-            <a href="#">Some other service</a>
-            <a href="#">Maybe a blowjob</a>
-        </div>
+      Services
+      <div class="dropdown-content">
+        <a href="#">Teeth whitening</a>
+        <a href="#">Some other service</a>
+        <a href="#">Maybe a blowjob</a>
+      </div>
     </div>
 
-    <div class="dropdown nav-element ">
-        Dental Problems
-        <div class="dropdown-content">
-            <a href="#">Dental bugs</a>
-            <a href="#">Shark-like teeth</a>
-            <a href="#">Simply an ugly smile</a>
-        </div>
+    <div class="dropdown nav-element">
+      Dental Problems
+      <div class="dropdown-content">
+        <a href="#">Dental bugs</a>
+        <a href="#">Shark-like teeth</a>
+        <a href="#">Simply an ugly smile</a>
+      </div>
     </div>
 
-    <div class="dropdown nav-element ">
-        Travel Facilities
-        <div class="dropdown-content">
-            <a href="#">Take a flight to Moldova</a>
-            <a href="#">Stay in out Hotels</a>
-            <a href="#">Maybe some entertainment </a>
-        </div>
+    <div class="dropdown nav-element">
+      Travel Facilities
+      <div class="dropdown-content">
+        <a href="#">Take a flight to Moldova</a>
+        <a href="#">Stay in out Hotels</a>
+        <a href="#">Maybe some entertainment </a>
+      </div>
     </div>
 
     <div class="profile dropdown">
-        <app-profile></app-profile>
+      <app-profile></app-profile>
 
-        <div class="dropdown-content">
-            <a *ngIf="!this.isLoggedIn " (click)="login()">Login</a>
-            <a *ngIf="!this.isLoggedIn " (click)="register()">Register</a>
+      <div class="dropdown-content">
+        <a *ngIf="!this.isLoggedIn" (click)="login()">Login</a>
+        <a *ngIf="!this.isLoggedIn" (click)="register()">Register</a>
 
-            <a *ngIf="this.isLoggedIn " >My profile</a>
-            <a *ngIf="this.isLoggedIn " (click)="logout()">Logout</a>
-        </div><!-- TODO: Do we neet this icon here? -->
+        <a *ngIf="this.isLoggedIn">My profile</a>
+        <a *ngIf="this.isLoggedIn" (click)="logout()">Logout</a>
+      </div>
+      <!-- TODO: Do we neet this icon here? -->
     </div>
+  </div>
 </div>

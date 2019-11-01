@@ -1,50 +1,64 @@
-@import "../../app.component.scss";
+@import "~src/styles.scss";
+
+@mixin vartical-centerer {
+  top: 50%;
+  transform: translate(0, -30%);
+}
 
 .nav {
   position: fixed;
+  display: flex;
+  justify-content: space-between;
   width: 100%;
   min-height: 100px;
   z-index: 1;
   box-shadow: 0 2px 4px 2px rgba(0, 0, 0, 0.082);
   background-color: hsl(0, 0%, 100%);
+  padding: 0 0 0 0;
 }
 
 .img {
   width: 70px;
+  height: 70px;
+  position: relative;
+  @include vartical-centerer();
+  
 }
 
 .profile {
   position: relative;
-  left: 100px;
+}
+
+.nav-element-container {
+  display: flex;
+  justify-content: space-between;
 }
 
 .nav-element {
-  position: relative;
-  display: block;
-  width: 200px;
-  height: fit-content;
-  top: 25%;
+  // position: relative;
+  // display: block;
+  // width: 200px;
+  // height: fit-content;
   text-align: center;
+  @include vartical-centerer();
 }
 
 .dropdown {
   background-color: transparent;
   color: $gray;
-  padding: 16px;
   font-size: 19px;
   border: none;
   text-align: center;
 }
 
 .dropdown-content {
-  // display: none;
   position: absolute;
   background-color: white;
   width: 200px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
   cursor: pointer;
-  
+
   overflow: hidden;
   max-height: 0px;
   -webkit-transition: max-height 0.5s ease-out;
@@ -69,4 +83,11 @@ a:hover {
 
 .dropdown:hover {
   color: $hoverGray;
+}
+
+@media all and (max-width: 500px) {
+  .nav {
+    /* On small screens, we are no longer using row direction but column */
+    flex-direction: column;
+  }
 }
