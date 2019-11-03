@@ -27,6 +27,8 @@ export class NavigationComponent implements OnInit {
 
   currentSize = 'big';
   isLoggedIn = false;
+  isNavbarCollapsed = false;
+  isMenuCollapsed = false;
 
   constructor(
     private store: Store,
@@ -40,6 +42,7 @@ export class NavigationComponent implements OnInit {
     .subscribe(isLoggedIn => this.isLoggedIn = isLoggedIn);
   }
   ngOnInit() {
+    this.isNavbarCollapsed = window.innerWidth < 800;
   }
 
   login() {// TODO: should be in profile component

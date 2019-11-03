@@ -3,7 +3,17 @@
     <img src="../../../assets/img/demo-logo.png" width="70px" />
   </div>
 
-  <div class="nav-element-container">
+  <div
+    class="toggleMenu"
+    *ngIf="isNavbarCollapsed"
+    (click)="isMenuCollapsed = !isMenuCollapsed"
+  >
+    <div class="bar1" [ngClass]="{ 'change': !isMenuCollapsed }"></div>
+    <div class="bar2" [ngClass]="{ 'change': !isMenuCollapsed }"></div>
+    <div class="bar3" [ngClass]="{ 'change': !isMenuCollapsed }"></div>
+  </div>
+
+  <div class="nav-element-container" *ngIf="!isNavbarCollapsed">
     <div class="dropdown nav-element">
       Services
       <div class="dropdown-content">
@@ -31,9 +41,9 @@
       </div>
     </div>
 
-    <div class="profile dropdown">
+    <div class="profile dropdown nav-element">
       <app-profile></app-profile>
-
+      <!-- TODO: Do we neet this icon here? -->
       <div class="dropdown-content">
         <a *ngIf="!this.isLoggedIn" (click)="login()">Login</a>
         <a *ngIf="!this.isLoggedIn" (click)="register()">Register</a>
@@ -41,7 +51,6 @@
         <a *ngIf="this.isLoggedIn">My profile</a>
         <a *ngIf="this.isLoggedIn" (click)="logout()">Logout</a>
       </div>
-      <!-- TODO: Do we neet this icon here? -->
     </div>
   </div>
 </div>

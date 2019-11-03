@@ -7,11 +7,12 @@
 
 .nav {
   position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1;
   display: flex;
   justify-content: space-between;
-  width: 100%;
   min-height: 100px;
-  z-index: 1;
   box-shadow: 0 2px 4px 2px rgba(0, 0, 0, 0.082);
   background-color: hsl(0, 0%, 100%);
   padding: 0 0 0 0;
@@ -35,10 +36,8 @@
 }
 
 .nav-element {
-  // position: relative;
-  // display: block;
-  // width: 200px;
-  // height: fit-content;
+  width: 200px;
+  height: fit-content;
   text-align: center;
   @include vartical-centerer();
 }
@@ -85,9 +84,39 @@ a:hover {
   color: $hoverGray;
 }
 
-@media all and (max-width: 500px) {
-  .nav {
-    /* On small screens, we are no longer using row direction but column */
-    flex-direction: column;
+@media only screen and (min-width: 800px) {
+  .toggleMenu {
+    display: none;
   }
+}
+
+.toggleMenu {
+  display: inline-block;
+  cursor: pointer;
+  height: 35px;
+}
+
+.bar1, .bar2, .bar3 {
+  width: 35px;
+  height: 5px;
+  background-color: rgb(146, 190, 255);
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+/* Rotate first bar */
+.change .bar1 {
+  -webkit-transform: rotate(-45deg) translate(-9px, 6px) ;
+  transform: rotate(-45deg) translate(-9px, 6px) ;
+}
+
+/* Fade out the second bar */
+.change .bar2 {
+  opacity: 0;
+}
+
+/* Rotate last bar */
+.change .bar3 {
+  -webkit-transform: rotate(45deg) translate(-8px, -8px) ;
+  transform: rotate(45deg) translate(-8px, -8px) ;
 }
