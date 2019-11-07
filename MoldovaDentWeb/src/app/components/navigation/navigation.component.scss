@@ -1,6 +1,6 @@
 @import "~src/styles.scss";
 
-@mixin vartical-centerer {
+@mixin vertical-centerer {
   top: 50%;
   transform: translate(0, -30%);
 }
@@ -22,7 +22,7 @@
   width: 70px;
   height: 70px;
   position: relative;
-  @include vartical-centerer();
+  @include vertical-centerer();
   
 }
 
@@ -39,7 +39,7 @@
   width: 200px;
   height: fit-content;
   text-align: center;
-  @include vartical-centerer();
+  @include vertical-centerer();
 }
 
 .dropdown {
@@ -85,8 +85,12 @@ a:hover {
 }
 
 @media only screen and (min-width: 800px) {
-  .toggleMenu {
-    display: none;
+  // .toggleMenu {
+  //   display: none;
+  // }
+
+  .nav {
+
   }
 }
 
@@ -94,6 +98,7 @@ a:hover {
   display: inline-block;
   cursor: pointer;
   height: 35px;
+   
 }
 
 .bar1, .bar2, .bar3 {
@@ -106,8 +111,8 @@ a:hover {
 
 /* Rotate first bar */
 .change .bar1 {
-  -webkit-transform: rotate(-45deg) translate(-9px, 6px) ;
-  transform: rotate(-45deg) translate(-9px, 6px) ;
+  -webkit-transform: rotate(-45deg) translate(-8px, 7px) ;
+  transform: rotate(-45deg) translate(-8px, 7px) ;
 }
 
 /* Fade out the second bar */

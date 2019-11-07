@@ -5,15 +5,17 @@
 
   <div
     class="toggleMenu"
-    *ngIf="isNavbarCollapsed"
-    (click)="isMenuCollapsed = !isMenuCollapsed"
+    *ngIf="!isScreenBig"
+    (click)="isMenuExpanded = !isMenuExpanded"
+    [ngClass]="{ 'change': isMenuCollapsed }"
+    
   >
-    <div class="bar1" [ngClass]="{ 'change': !isMenuCollapsed }"></div>
-    <div class="bar2" [ngClass]="{ 'change': !isMenuCollapsed }"></div>
-    <div class="bar3" [ngClass]="{ 'change': !isMenuCollapsed }"></div>
+    <div class="bar1"></div>
+    <div class="bar2"></div>
+    <div class="bar3"></div>
   </div>
 
-  <div class="nav-element-container" *ngIf="!isNavbarCollapsed">
+  <div class="nav-element-container" *ngIf="isScreenBig || isMenuExpanded">
     <div class="dropdown nav-element">
       Services
       <div class="dropdown-content">
