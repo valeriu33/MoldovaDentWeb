@@ -11,6 +11,8 @@ import { MatDialog } from "@angular/material/dialog";
 import { LogInComponent } from "../profile/log-in/log-in.component";
 import { RegisterComponent } from "../profile/register/register.component";
 import { AuthenticationService } from "@app//services/authentication.service";
+import { ExpandMenu, MinifyMenu } from '@app//actions/ui.actions';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: "app-navigation",
@@ -21,19 +23,22 @@ import { AuthenticationService } from "@app//services/authentication.service";
       state(
         "bigger",
         style({
-          height: "700px"
+          height: "700px",
+          position: "relative"
         })
       ),
       state(
         "big",
         style({
-          height: "130px"
+          height: "130px",
+          position: "fixed"
         })
       ),
       state(
         "small",
         style({
-          height: "110px"
+          height: "110px",
+          position: "fixed"
         })
       ),
       transition("big <=> small", [animate("500ms")]),
@@ -45,9 +50,8 @@ import { AuthenticationService } from "@app//services/authentication.service";
 export class NavigationComponent implements OnInit {
   currentSize = "big";
   isLoggedIn = false;
-  isMenuExpanded = true; // TODO: Think about better names for Collapsed variables
   isScreenBig = false;
-  navbarHeight = "130px";
+  isNavExpanded = true;
 
   constructor(
     private store: Store,
@@ -57,22 +61,35 @@ export class NavigationComponent implements OnInit {
     this.store
       .select(navState => navState.app.ui.isNavExpanded)
       .subscribe(
-        isExpanded => (this.currentSize = isExpanded ? "big" : "small")
+        isExpanded => {
+          if (this.currentSize !== "bigger")
+            this.currentSize = isExpanded ? "big" : "small"
+            this.isNavExpanded = isExpanded
+        }
       );
 
     this.store
-    .select(screenState => screenState.app.ui.isScreenBig)
-    .subscribe(
-      isScreenBig => this.isScreenBig = isScreenBig
-    )
+      .select(navState => navState.app.ui.isMenuExpanded)
+      .subscribe(
+        isExpanded => {
+          if (isExpanded){
+            this.currentSize = "bigger"
+          } else {
+            this.currentSize = this.isNavExpanded ? "big" : "small"
+          }
+        }
+    );
+
+    this.store
+      .select(screenState => screenState.app.ui.IsScreenBig)
+      .subscribe(isScreenBig => (this.isScreenBig = isScreenBig));
 
     this.store
       .select(authState => authState.app.authentication.isLoggedIn)
       .subscribe(isLoggedIn => (this.isLoggedIn = isLoggedIn));
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   login() {
     // TODO: should be in profile component
@@ -87,5 +104,16 @@ export class NavigationComponent implements OnInit {
   logout() {
     // TODO: should be in profile component
     this.authenticationService.logout();
+  }
+
+  expandMenu(){
+    if (this.currentSize !== "bigger") {
+      this.store.dispatch(new ExpandMenu());
+      console.log("maxify")
+    }
+    else {
+      this.store.dispatch(new MinifyMenu());
+      console.log("minifuy")
+    }
   }
 }

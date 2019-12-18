@@ -6,9 +6,8 @@
   <div
     class="toggleMenu"
     *ngIf="!isScreenBig"
-    (click)="isMenuExpanded = !isMenuExpanded"
+    (click)="expandMenu()"
     [ngClass]="{ 'change': isMenuCollapsed }"
-    
   >
     <div class="bar1"></div>
     <div class="bar2"></div>
