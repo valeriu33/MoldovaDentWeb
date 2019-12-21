@@ -12,7 +12,6 @@ import { LogInComponent } from "../profile/log-in/log-in.component";
 import { RegisterComponent } from "../profile/register/register.component";
 import { AuthenticationService } from "@app//services/authentication.service";
 import { ExpandMenu, MinifyMenu } from '@app//actions/ui.actions';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: "app-navigation",
