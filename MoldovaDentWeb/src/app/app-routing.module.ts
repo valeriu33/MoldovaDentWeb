@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { WellcomeComponent } from './components/wellcome/wellcome.component';
+import { WelcomeComponent } from './components/welcome/welcome.component';
+import { AppointmentRequestComponent } from './components/appointment-request/appointment-request.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/wellcome', pathMatch: 'full' },
-  { path: 'wellcome', component: WellcomeComponent}
+  { path: '', redirectTo: '/welcome', pathMatch: 'full' },
+  { path: 'welcome', component: WelcomeComponent},
+  { path: 'newAppointment', component: AppointmentRequestComponent}
 ];
 
 @NgModule({

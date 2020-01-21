@@ -11,7 +11,7 @@ import { AppComponent } from './app.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { ContentComponent } from './components/content/content.component';
-import { WellcomeComponent } from './components/wellcome/wellcome.component';
+import { WelcomeComponent } from './components/welcome/welcome.component';
 import { LogInComponent } from './components/profile/log-in/log-in.component';
 import { RegisterComponent } from './components/profile/register/register.component';
 
@@ -23,6 +23,7 @@ import { ErrorInterceptor } from './_helpers/error.interceptor';
 import { environment } from '@environments/environment';
 import { AuthenticationState } from './state/authentication.state';
 import { UiState } from './state/ui.state';
+import { AppointmentRequestComponent } from './components/appointment-request/appointment-request.component';
 
 @NgModule({
   declarations: [
@@ -30,9 +31,10 @@ import { UiState } from './state/ui.state';
     NavigationComponent,
     ProfileComponent,
     ContentComponent,
-    WellcomeComponent,
+    WelcomeComponent,
     LogInComponent,
-    RegisterComponent
+    RegisterComponent,
+    AppointmentRequestComponent
   ],
   entryComponents: [
     LogInComponent,
