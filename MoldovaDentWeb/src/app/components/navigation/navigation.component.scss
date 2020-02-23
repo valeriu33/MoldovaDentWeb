@@ -2,7 +2,7 @@
 
 @mixin vertical-centerer {
   top: 50%;
-  transform: translate(0, -30%);
+  transform: translate(0, -50%);
 }
 
 .nav {
@@ -88,16 +88,20 @@ a:hover {
   // .toggleMenu {
   //   display: none;
   // }
+}
 
-  .nav {
-
-  }
+.testClass {
+  background-color: red !important;
+  
 }
 
 .toggleMenu {
   display: inline-block;
   cursor: pointer;
   height: 35px;
+  position: relative;
+  @include vertical-centerer();
+  right: 45px;
 }
 
 .bar1, .bar2, .bar3 {

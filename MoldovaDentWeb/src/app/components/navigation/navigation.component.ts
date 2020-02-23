@@ -12,6 +12,7 @@ import { LogInComponent } from "../profile/log-in/log-in.component";
 import { RegisterComponent } from "../profile/register/register.component";
 import { AuthenticationService } from "@app//services/authentication.service";
 import { ExpandMenu, MinifyMenu } from '@app//actions/ui.actions';
+import { Router } from '@angular/router';
 
 @Component({
   selector: "app-navigation",
@@ -55,7 +56,8 @@ export class NavigationComponent implements OnInit {
   constructor(
     private store: Store,
     private dialog: MatDialog,
-    private authenticationService: AuthenticationService
+    private authenticationService: AuthenticationService,
+    private router: Router
   ) {
     this.store
       .select(navState => navState.app.ui.isNavExpanded)
@@ -108,11 +110,17 @@ export class NavigationComponent implements OnInit {
   expandMenu(){
     if (this.currentSize !== "bigger") {
       this.store.dispatch(new ExpandMenu());
-      console.log("maxify")
     }
     else {
       this.store.dispatch(new MinifyMenu());
-      console.log("minifuy")
     }
+  }
+
+  testFunc() {
+    this.router.navigate(['newAppointment']);
+  }
+
+  goToHome() {
+    this.router.navigate(['welcome']);
   }
 }
