@@ -14,6 +14,7 @@ import { ContentComponent } from './components/content/content.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { LogInComponent } from './components/profile/log-in/log-in.component';
 import { RegisterComponent } from './components/profile/register/register.component';
+import { GenericInfoComponent } from './components/generic-info/generic-info.component';
 
 
 import { AppState } from './state/app.state';
@@ -34,7 +35,8 @@ import { AppointmentRequestComponent } from './components/appointment-request/ap
     WelcomeComponent,
     LogInComponent,
     RegisterComponent,
-    AppointmentRequestComponent
+    AppointmentRequestComponent,
+    GenericInfoComponent
   ],
   entryComponents: [
     LogInComponent,
