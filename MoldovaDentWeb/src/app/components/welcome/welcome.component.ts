@@ -14,9 +14,7 @@ export class WelcomeComponent implements OnInit {
   }
 
   newAppointment(){
-    console.log("dasd");
     this.router.navigateByUrl('/newAppointment');
-    console.log("wtf")
   }
 
 }

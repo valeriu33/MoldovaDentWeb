@@ -65,7 +65,7 @@ export class NavigationComponent implements OnInit {
         isExpanded => {
           if (this.currentSize !== "bigger")
             this.currentSize = isExpanded ? "big" : "small"
-            this.isNavExpanded = isExpanded
+          this.isNavExpanded = isExpanded
         }
       );
 
@@ -73,7 +73,7 @@ export class NavigationComponent implements OnInit {
       .select(navState => navState.app.ui.isMenuExpanded)
       .subscribe(
         isExpanded => {
-          if (isExpanded){
+          if (isExpanded) {
             this.currentSize = "bigger"
           } else {
             this.currentSize = this.isNavExpanded ? "big" : "small"

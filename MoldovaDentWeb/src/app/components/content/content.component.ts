@@ -8,23 +8,47 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
   styleUrls: ['./content.component.scss'],
   animations: [
     trigger('textChangePosition', [
-      state('down', style({
+      state('bigger', style({
+        paddingTop: '0px'
+      })),
+      state('big', style({
         paddingTop: '130px'
       })),
-      state('up', style({
+      state('small', style({
         paddingTop: '110px'
       })),
-      transition('up <=> down', [animate('500ms')])
+      transition("big <=> small", [animate("500ms")]),
+      transition("* <=> bigger", [animate("800ms")])
     ])
   ]
 })
 export class ContentComponent implements OnInit {
 
-  currentPosition = 'down';
+  currentSize = 'big';
+  isNavExpanded = false;
 
   constructor(private store: Store) {
-    this.store.select(menuState => menuState.app.ui.isMenuExpanded)
-      .subscribe(isExpanded => isExpanded ? this.currentPosition = 'down' : this.currentPosition = 'up');
+    this.store
+      .select(navState => navState.app.ui.isNavExpanded)
+      .subscribe(
+        isExpanded => {
+          if (this.currentSize !== "bigger")
+            this.currentSize = isExpanded ? "big" : "small"
+          this.isNavExpanded = isExpanded
+        }
+      );
+
+    this.store
+      .select(navState => navState.app.ui.isMenuExpanded)
+      .subscribe(
+        isExpanded => {
+          if (isExpanded) {
+            this.currentSize = "bigger"
+          } else {
+            this.currentSize = this.isNavExpanded ? "big" : "small"
+          }
+        }
+    );
   }
   ngOnInit() {
   }
