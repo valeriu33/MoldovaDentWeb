@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxsModule } from '@ngxs/store';
+import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
+
 import { MatDialogModule } from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -48,11 +50,12 @@ import { AppointmentRequestComponent } from './components/appointment-request/ap
     FormsModule,
     BrowserAnimationsModule,
     NgxsModule.forRoot([
-      AppState,
-      UiState,
-      AuthenticationState
-    ],
-    { developmentMode: !environment.production }),
+        AppState,
+        UiState,
+        AuthenticationState
+      ],
+      { developmentMode: !environment.production }),
+    NgxsReduxDevtoolsPluginModule.forRoot(),
     MatDialogModule,
     HttpClientModule
   ],
